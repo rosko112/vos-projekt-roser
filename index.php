@@ -2,7 +2,7 @@
 <html lang="sl">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css"> <!-- Use the same CSS file -->
+    <link rel="stylesheet" href="style.css"> 
     <title>Airros</title>
 </head>
 <body>
