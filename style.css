@@ -1,112 +1,143 @@
-img {
-    width: 80px;
-    height: 80px;
-    outline: darkblue solid 1px;
-    border-radius: 5px;
-}
-
-body {
-    background-image: url('slike/background1.png');
+body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-image: url(slike/background1.png);
     background-size: cover;
     background-repeat: no-repeat;
-    overflow-x: hidden;
 }
 
-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-}
-
-.naslov {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-weight: bold;
-    padding: 15px;
+.header{
+    background-color: #c5ebee;
+    color:white;
+    padding: 20px;
     text-align: center;
 }
 
 .prijava {
-    margin: 10px;
-    padding: 10px 15px;
+    position: absolute; 
+    top: 30px;
+    right: 20px; 
+    background-color: #ffffff;
+    padding: 20px;
+    width: 240px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+a{
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: darkblue;
+    color: #9bdfe4;
     font-weight: bold;
-    background-color: white;
-    border: 1px solid darkblue;
-    border-radius: 5px;
+    font-size: 18px;
+}
+
+.logo{
+  float:left;
+}
+
+img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }
 
 .iskanje {
-    margin: 50px auto;
-    padding: 15px;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: red;
-    font-weight: bold;
-    width: 60%;
-    height: 60%;
-    text-align: center;
+    background-color: #ffffff; 
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    font-family: Arial, sans-serif;
 }
 
-.iskanje input, select {
-    width: 80%;
-    height: 40px;
-    margin: 10px 0;
+.iskanje input, .iskanje select {
+    width: 90%; 
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #9bdfe4; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    box-sizing: border-box; 
+}
+
+button {
+    background-color: #9bdfe4; 
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
-    padding: 5px;
-    box-sizing: border-box;
-    border: 1px solid darkblue;
-    border-radius: 5px;   
-    color: darkblue
 }
 
-.submit{
-    margin: 10px;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+button:hover {
+    background-color: #7bc9d1; 
+}
+
+button:active {
+    background-color: #5aaeb8;
+}
+
+footer{
+    background-color: #c5ebee;
     color: white;
-    font-weight: bold;
-    background-color: darkblue;
-    border: 1px solid darkblue;
-    border-radius: 5px;
-}
-
-.submit:hover {
-    background-color: white;
-    color: darkblue;
-    cursor: pointer;
-}
-
-.submit:active {
-    background-color: darkblue;
-    color: white;
-}
-
-.prijava:hover {
-    background-color: darkblue;
-    color: white;
-    cursor: pointer;
-}
-
-.prijava:active {
-    background-color: white;
-    color: darkblue;
-}
-
-.footer{
-    width: 100%;
-    background-color: white;
-    color: darkblue;
     text-align: center;
-    border: 1px solid darkblue;
-    border-radius: 5px;
-    padding: 10px 0;
+    padding: 10px;
+    position: fixed;
     bottom: 0;
+    width: 100%;
 }
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+/*login pagin*/
+
+.login h2{
+    color: #9bdfe4; 
+    font-size: 24px; 
+    margin-bottom: 20px; 
+}
+
+.login {
+    background-color: #ffffff; 
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    font-family: Arial, sans-serif;
+}
+
+input{
+    width: 90%; 
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #9bdfe4; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    box-sizing: border-box; 
+}
+
+button{
+    background-color: #9bdfe4; 
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login button{
+    margin-bottom: 30px;
+}
+
+
+
