@@ -16,7 +16,6 @@
         <form action="regist_vmes.php" method="post">
             <input type="text" name="ime" id="ime" class="input-field" placeholder="Ime" required> <br>
             <input type="text" name="priimek" id="priimek" class="input-field" placeholder="Priimek" required> <br>
-            <input type="text" name="naslov" id="naslov" class="input-field" placeholder="Naslov" required> <br>
             <input type="text" name="telefon" id="telefon" class="input-field" placeholder="Telefon" required> <br>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-pošta" required> <br>
             <input type="password" name="password" id="password" class="input-field" placeholder="Geslo" required> <br>
