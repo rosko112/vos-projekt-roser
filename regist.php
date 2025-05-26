@@ -13,7 +13,7 @@
 
     <div class="login">
         <h2 class="login-title">Registracija</h2>
-        <form action="login.php" method="post">
+        <form action="regist_vmes.php" method="post">
             <input type="text" name="ime" id="ime" class="input-field" placeholder="Ime" required> <br>
             <input type="text" name="priimek" id="priimek" class="input-field" placeholder="Priimek" required> <br>
             <input type="text" name="naslov" id="naslov" class="input-field" placeholder="Naslov" required> <br>

@@ -1,3 +1,8 @@
+<?php
+require_once 'baza.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -13,7 +18,7 @@
 
     <div class="login">
         <h2 class="login-title">Prijava</h2>
-        <form action="login.php" method="post">
+        <form action="login_vmes.php" method="POST">
             <input type="email" name="email" id="email" class="input-field" placeholder="E-pošta" required> <br>
             <input type="password" name="password" id="password" class="input-field" placeholder="Geslo" required> <br>
             <button type="submit" class="submit-button">Prijava</button>
