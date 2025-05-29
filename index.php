@@ -10,6 +10,7 @@ include 'header.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="slike/favicon.ico">
     <title>Airros</title>
 </head>
 <body>
@@ -45,6 +46,7 @@ include 'header.php';
 
                 <label for="do">Do:</label>
                 <select name="do" id="do">
+                <option value="" selected disabled hidden>Destinacija</option>
                 <?php
                     $sql = 'SELECT k.id_k, k.ime AS kraj, d.ime AS drzava 
                             FROM kraji k 
@@ -60,18 +62,6 @@ include 'header.php';
             <br>
             <label for="datum_od">Datum od:</label>
             <input type="date" name="datum_od" id="datum_od" required>
-
-            <label for="datum_do">Datum do:</label>
-            <input type="date" name="datum_do" id="datum_do" required>
-
-            <label for="stevilo">Število potnikov:</label>
-            <input type="number" name="stevilo" id="stevilo" min="1" max="10" required> <br>
-
-            <label for="razred">Izbira razreda:</label>
-            <select name="razred" id="razred" required>
-                <option value="ekonomija">Ekonomija</option>
-                <option value="prvi-razred">Prvi razred</option>
-            </select> <br>
 
             <button type="submit" class="submit">Išči</button>
             <button type="reset" class="submit">Ponastavi</button>

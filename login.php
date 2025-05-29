@@ -7,7 +7,9 @@ session_start();
 <html lang="sl">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="slike/favicon.ico">
     <title>Airros</title>
 </head>
 <body>
@@ -18,6 +20,12 @@ session_start();
 
     <div class="login">
         <h2 class="login-title">Prijava</h2>
+        <?php
+            if (isset($_SESSION['login_error'])) {
+                echo '<p style="color: red; font-weight: bold;">' . $_SESSION['login_error'] . '</p>';
+                unset($_SESSION['login_error']);
+            }
+        ?>
         <form action="login_vmes.php" method="POST">
             <input type="email" name="email" id="email" class="input-field" placeholder="E-pošta" required> <br>
             <input type="password" name="password" id="password" class="input-field" placeholder="Geslo" required> <br>
