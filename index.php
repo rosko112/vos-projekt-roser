@@ -2,6 +2,7 @@
 require_once 'baza.php';
 session_start();
 include 'header.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +23,9 @@ include 'header.php';
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<a href="login.php" class="prijava">Prijava</a>';
+        }
+        if ($_SESSION['vloga_id'] == 1) {
+            echo '<a href="admin.php" style="padding: 10px 15px; background: #0077cc; color: white; border-radius: 5px; text-decoration: none;">Admin nadzor</a>';
         }
         ?>
     </header>

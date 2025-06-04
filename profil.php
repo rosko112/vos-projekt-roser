@@ -1,37 +1,53 @@
-<html>
+<?php
+require_once 'baza.php';
+include 'header.php';
+session_start();
+
+if (!isset($_SESSION['id_u'])) {
+    header('Location: prijava.php');
+    exit;
+}
+
+$id_uporabnika = ($_SESSION['id_u']);
+
+$sql = "SELECT ime, priimek, email, geslo, tel FROM uporabniki WHERE id_u = ?";
+$stmt = mysqli_prepare($link, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id_uporabnika);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+$uporabnik = mysqli_fetch_assoc($result);
+?>
+
+<!DOCTYPE html>
+<html lang="sl">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css"> 
-    <title>Profil</title>
+    <meta charset="UTF-8" />
+    <title>Profil uporabnika</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="slike/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <header class="header">
-        <a href="index.php">
-            <img src="slike/logo.png" alt="tukaj je slika" class="logo">
-        </a>
-        <h1 class="naslov">AIRROS</h1>
-        <a href="login.php" class="prijava">Prijava</a>
-    </header>
+<header class="header">
+    <a href="index.php"><img src="slike/logo.png" alt="logo" class="logo" /></a>
+    <h1 class="naslov">Profil uporabnika</h1>
+</header>
 
-    <div class="profil">
-        <h2 class="profil-title">Moj profil</h2>
-        <form action="profil.php" method="post">
-            <input type="text" name="ime" id="ime" class="input-field" placeholder="Ime" required> <br>
-            <input type="text" name="priimek" id="priimek" class="input-field" placeholder="Priimek" required> <br>
-            <input type="text" name="naslov" id="naslov" class="input-field" placeholder="Naslov" required> <br>
-            <input type="text" name="telefon" id="telefon" class="input-field" placeholder="Telefon" required> <br>
-            <input type="email" name="email" id="email" class="input-field" placeholder="E-pošta" required> <br>
-            <button type="submit" class="submit-button">Shrani spremembe</button>
-        </form>
+<div class="podatki">
+    <h2>Dobrodošli, <?php echo ($uporabnik['ime'] . ' ' . $uporabnik['priimek']); ?>!</h2>
+    <p><strong>Telefonska številka:</strong> <?php echo ($uporabnik['tel']); ?></p>
+    <p><strong>Email:</strong> <?php echo ($uporabnik['email']); ?></p>
+    <a href="spremeni_geslo.php" class="gumb">Spremeni geslo</a> <br>
+    <a href="logout.php" class="gumb">Odjava</a>
+</div>
+
+<footer>
+    <div class="footer">
+        <p>© 2025 Airros. Vse pravice pridržane.</p>
     </div>
+</footer>
+</body>
+</html>
 
-    <footer>
-        <div class="footer">
-            <p>Vse pravice pridržane &copy; 2023</p>
-            <div class="social-media">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </div>
-        </div>
-    </footer>
+<?php mysqli_close($link); ?>
