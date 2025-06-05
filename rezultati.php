@@ -25,7 +25,7 @@ $od = $_POST['od'];
 $do = $_POST['do'];
 $datum_od = $_POST['datum_od'];
 
-$sql = "SELECT l.*, 
+$sql = "SELECT l.id_f, l.st_leta, l.st_sedezov, l.cas_odhoda, l.cas_prihoda, l.dat_odhoda, l.dat_prihoda, 
         ko.id_k AS id_k_odhod, 
         kp.id_k AS id_k_prihod,
         k_od.ime AS kraj_odhod, 
@@ -39,15 +39,12 @@ $sql = "SELECT l.*,
     INNER JOIN kraji k_pr ON kp.id_k = k_pr.id_k
     INNER JOIN drzave d_od ON k_od.drzava_id = d_od.id_d
     INNER JOIN drzave d_pr ON k_pr.drzava_id = d_pr.id_d
-    LEFT JOIN rezervacije_leti rl ON rl.id_f = l.id_f
-    LEFT JOIN rezervacije r ON r.id_r = rl.id_r
-    LEFT JOIN sedezi s ON s.id_s = r.id_s
     WHERE 
         ko.id_k = '$od' AND
         kp.id_k = '$do' AND
         l.dat_odhoda >= '$datum_od'
+    GROUP BY l.id_f
     ORDER BY l.dat_odhoda, l.cas_odhoda";
-
 $result = mysqli_query($link, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -58,6 +55,7 @@ if (mysqli_num_rows($result) > 0) {
         <th>Prihod</th>
         <th>Datum</th>
         <th>Sedeži</th>
+        <th>Rezerviraj</th>
     </tr>";
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -80,7 +78,6 @@ if (mysqli_num_rows($result) > 0) {
                 <input type='hidden' name='cas_prihoda' value='" . $row['cas_prihoda'] . "'>
                 <input type='hidden' name='dat_prihoda' value='" . $row['dat_prihoda'] . "'>
                 <input type='hidden' name='st_sedezov' value='" . $row['st_sedezov'] . "'>
-                <input type='hidden' name='cena' value='" . $row['cena'] . "'>
                 <input type='submit' value='Rezerviraj'>
             </form>
         </td>";

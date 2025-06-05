@@ -8,7 +8,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: center center; 
-    overflow-x: hidden; 
 }
 
 .header{
@@ -58,7 +57,7 @@ body {
 
 a{
     text-decoration: none;
-    color: #9bdfe4;
+    color: #0077cc;
     font-weight: bold;
     font-size: 18px;
 }
@@ -250,6 +249,44 @@ button{
     color: #0077cc;
 }
 
+.rezervacije {
+    margin-bottom: 100px; /* Adds space above the footer */
+}
+
+.rezervacije table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.rezervacije th, .rezervacije td {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #eef6ff;
+}
+
+.rezervacije th {
+    background-color: #0077cc;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.rezervacije tr:hover {
+    background-color: #d9e9ff;
+}
+
+.rezervacije td {
+    font-size: 16px;
+    color: #333;
+}
+
 /*admin.php*/
 .dodajanje {
     background-color: #ffffff;
@@ -296,4 +333,62 @@ button{
     color: #333;
 }
 
+/*rezervacije.php*/
+.rezervacija {
+    background-color: #ffffff;
+    padding: 30px;
+    margin: 50px auto;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.rezervacija h2 {
+    color: #0077cc;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.rezervacija p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.rezervacija strong {
+    color: #0077cc;
+}
+
+.rezervacija label {
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+    display: block;
+}
+
+.rezervacija input, .rezervacija select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.rezervacija input[type="submit"] {
+    background-color: #0077cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rezervacija input[type="submit"]:hover {
+    background-color: #005fa3;
+}
 

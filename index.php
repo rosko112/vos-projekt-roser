@@ -65,7 +65,7 @@ include 'header.php';
                 </select>
             <br>
             <label for="datum_od">Datum od:</label>
-            <input type="date" name="datum_od" id="datum_od" required>
+            <input type="date" name="datum_od" id="datum_od" required min="<?php echo date('Y-m-d'); ?>">
 
             <button type="submit" class="submit">Išči</button>
             <button type="reset" class="submit">Ponastavi</button>
