@@ -2,18 +2,14 @@
 require_once 'baza.php';
 session_start();
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 if (!isset($_SESSION['id_u'])) {
-    echo "Najprej se morate prijaviti.";
+    header("Location: login.php");
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_leta = $_POST['id_f'];
-    $id_sedeza = $_POST['id_s']; // Dynamically passed from the form
+    $id_sedeza = $_POST['id_s']; 
     $id_uporabnika = $_SESSION['id_u'];
     $st_sed_total = $_POST['st_sed'];
 
@@ -43,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_query($link, $sql)) {
             $id_rezervacije = mysqli_insert_id($link);
 
-// Check if the flight is already linked to the reservation
             $check_flight_sql = "SELECT COUNT(*) AS count FROM rezervacije_leti WHERE id_r = $id_rezervacije AND id_f = $id_leta";
             $check_flight_result = mysqli_query($link, $check_flight_sql);
             $flight_row = mysqli_fetch_assoc($check_flight_result);
@@ -54,11 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<p>Napaka pri povezovanju rezervacije z letom: " . mysqli_error($link) . "</p>";
             }
         } else {
-            echo "<p>Napaka pri rezervaciji: " . mysqli_error($link) . "</p>";
+            header("Location: rezervacija_neuspeh.php");
+            exit;
         }
     }
     }
-    echo "<p>Rezervacija za $st_sed_total sedežev uspešno dodana!</p>";
+    header("Location: rezervacija_uspeh.php");
 }
 
 mysqli_close($link);

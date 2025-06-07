@@ -28,7 +28,7 @@ session_start();
         <form action="regist_vmes.php" method="post">
             <input type="text" name="ime" id="ime" class="input-field" placeholder="Ime" required> <br>
             <input type="text" name="priimek" id="priimek" class="input-field" placeholder="Priimek" required> <br>
-            <input type="tel" id="telefon" name="telefon" class="input-field" placeholder="Telefon" required pattern="[0-9\s\-\+]+" title="Vnesite veljavno telefonsko številko." /><br>
+            <input type="tel" id="telefon" name="telefon" class="input-field" placeholder="Telefon" required pattern="[0-9]{9}" title="Vnesite veljavno telefonsko številko." /><br>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-pošta" required> <br>
             <input type="password" name="password" id="password" class="input-field" placeholder="Geslo" required> <br>
             <a href="login.php" class="register-link">Že imate račun? Prijavite se tukaj!</a> <br>

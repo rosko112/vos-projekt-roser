@@ -99,7 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="submit" value="Dodaj let" class = "dodaj">
 </form>
 </div>
-    <a href="index.php">Domov</a> <br><br>
 <footer>
         <div class="footer">
             <p>Vse pravice pridržane &copy; 2023</p>

@@ -4,7 +4,7 @@ session_start();
 include 'header.php';
 
 if (!isset($_SESSION['id_u'])) {
-    echo "Najprej se morate prijaviti.";
+    header("Location: login.php");
     exit;
 }
 
@@ -48,13 +48,13 @@ $cena = ($_POST['cena']);
         <p><strong>Število sedežev na voljo:</strong> <?php echo ($st_sedezov); ?></p>
 
         <label for="st_sed">Število sedežev:</label>
-        <input type="number" id="st_sed" name="st_sed" min="1" max="<?php echo ($st_sedezov); ?>" required> <br>
+        <input type="number" id="st_sed" name="st_sed" min="1" max="10" required> <br>
 
         <label for="razred">Razred:</label>
         <select id="razred" name="id_s" required>
-            <option value="1">Ekonomski (<?php echo (60); ?> €)</option>
-            <option value="2">Poslovni (<?php echo (60 * 1.5); ?> €)</option>
-            <option value="3">Prvi (<?php echo (60 * 2); ?> €)</option>
+            <option value="1">Ekonomski (<?php echo (50); ?> €)</option>
+            <option value="2">Poslovni (<?php echo (120); ?> €)</option>
+            <option value="3">Prvi (<?php echo (250); ?> €)</option>
         </select> <br>
 
         <input type="submit" value="Potrdi rezervacijo">
@@ -62,14 +62,14 @@ $cena = ($_POST['cena']);
 </div>
 
 <footer>
-    <div class="footer">
-        <p>© 2025 Airros. Vse pravice pridržane.</p>
-        <div class="social-media">
-            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-            <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+        <div class="footer">
+            <p>Vse pravice pridržane &copy; 2023</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                <a href="o_nas.php"> O nas </a>
+                <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>
