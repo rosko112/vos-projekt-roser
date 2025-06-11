@@ -17,7 +17,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $uporabnik = mysqli_fetch_assoc($result);
 
-$reservations_sql = "SELECT r.id_r, r.datum_rez, r.st_sed, r.st_vrste, r.cena, l.st_leta, l.dat_odhoda, l.cas_odhoda, l.dat_prihoda, l.cas_prihoda, 
+$rezervacije_sql = "SELECT r.id_r, r.datum_rez, r.st_sed, r.st_vrste, r.cena, l.st_leta, l.dat_odhoda, l.cas_odhoda, l.dat_prihoda, l.cas_prihoda, 
                     k_od.ime AS kraj_odhod, k_pr.ime AS kraj_prihod, d_od.ime AS drzava_od, d_pr.ime AS drzava_pr
                     FROM rezervacije r
                     INNER JOIN rezervacije_leti rl ON r.id_r = rl.id_r
@@ -30,10 +30,10 @@ $reservations_sql = "SELECT r.id_r, r.datum_rez, r.st_sed, r.st_vrste, r.cena, l
                     INNER JOIN drzave d_pr ON k_pr.drzava_id = d_pr.id_d
                     WHERE r.uporabnik_id = ?
                     ORDER BY r.datum_rez DESC";
-$reservations_stmt = mysqli_prepare($link, $reservations_sql);
-mysqli_stmt_bind_param($reservations_stmt, "i", $id_uporabnika);
-mysqli_stmt_execute($reservations_stmt);
-$reservations_result = mysqli_stmt_get_result($reservations_stmt);
+$rezervacije_stmt = mysqli_prepare($link, $rezervacije_sql);
+mysqli_stmt_bind_param($rezervacije_stmt, "i", $id_uporabnika);
+mysqli_stmt_execute($rezervacije_stmt);
+$rezervacije_result = mysqli_stmt_get_result($rezervacije_stmt);
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ $reservations_result = mysqli_stmt_get_result($reservations_stmt);
                 unset($_SESSION['uspeh_message']);
             }
         ?>
-    <?php if (mysqli_num_rows($reservations_result) > 0): ?>
+    <?php if (mysqli_num_rows($rezervacije_result) > 0): ?>
         <table border="1">
             <tr>
                 <th>Let št.</th>
@@ -83,22 +83,22 @@ $reservations_result = mysqli_stmt_get_result($reservations_stmt);
                 <th>Vrsta</th>
                 <th>Cena</th>
                 <th>Status</th>
-                <th>Akcija</th>
+                <th>Preklic</th>
             </tr>
-            <?php while ($reservation = mysqli_fetch_assoc($reservations_result)): ?>
+            <?php while ($rezervacije = mysqli_fetch_assoc($rezervacije_result)): ?>
                 <tr>
-                    <td><?php echo $reservation['st_leta']; ?></td>
-                    <td><?php echo $reservation['drzava_od'] . ' - ' . $reservation['kraj_odhod'] . '<br>' . $reservation['dat_odhoda'] . ' ' . $reservation['cas_odhoda']; ?></td>
-                    <td><?php echo $reservation['drzava_pr'] . ' - ' . $reservation['kraj_prihod'] . '<br>' . $reservation['dat_prihoda'] . ' ' . $reservation['cas_prihoda']; ?></td>
-                    <td><?php echo $reservation['datum_rez']; ?></td>
-                    <td><?php echo $reservation['st_sed']; ?></td>
-                    <td><?php echo $reservation['st_vrste']; ?></td>
-                    <td><?php echo $reservation['cena']; ?> €</td>
+                    <td><?php echo $rezervacije['st_leta']; ?></td>
+                    <td><?php echo $rezervacije['drzava_od'] . ' - ' . $rezervacije['kraj_odhod'] . '<br>' . $rezervacije['dat_odhoda'] . '<br>' . $rezervacije['cas_odhoda']; ?></td>
+                    <td><?php echo $rezervacije['drzava_pr'] . ' - ' . $rezervacije['kraj_prihod'] . '<br>' . $rezervacije['dat_prihoda'] . '<br>' . $rezervacije['cas_prihoda']; ?></td>
+                    <td><?php echo $rezervacije['datum_rez']; ?></td>
+                    <td><?php echo $rezervacije['st_sed']; ?></td>
+                    <td><?php echo $rezervacije['st_vrste']; ?></td>
+                    <td><?php echo $rezervacije['cena']; ?> €</td>
                     <td>
                         <?php
                         $current_date = date('Y-m-d H:i:s');
-                        $flight_date = $reservation['dat_odhoda'] . ' ' . $reservation['cas_odhoda'];
-                        if ($current_date > $flight_date) {
+                        $dat_leta = $rezervacije['dat_odhoda'] . ' ' . $rezervacije['cas_odhoda'];
+                        if ($trenuten_dat > $dat_leta) {
                             echo '<span style="color: red; font-weight: bold;">Preteklo</span>';
                         } else {
                             echo '<span style="color: green; font-weight: bold;">Aktivno</span>';
@@ -106,10 +106,10 @@ $reservations_result = mysqli_stmt_get_result($reservations_stmt);
                         ?>
                     </td>
                     <td>
-                        <?php if ($current_date <= $flight_date): ?>
+                        <?php if ($trenuten_dat <= $dat_leta): ?>
                             <form action="preklic_rezervacije.php" method="post" style="margin: 0;">
-                                <input type="hidden" name="id_r" value="<?php echo $reservation['id_r']; ?>">
-                                <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Prekliči</button>
+                                <input type="hidden" name="id_r" value="<?php echo $rezervacije['id_r']; ?>">
+                                <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;font-weight: bold;">Prekliči</button>
                             </form>
                         <?php else: ?>
                             <span style="color: gray;">Ni mogoče preklicati</span>
@@ -119,7 +119,7 @@ $reservations_result = mysqli_stmt_get_result($reservations_stmt);
             <?php endwhile; ?>
         </table>
     <?php else: ?>
-        <p>Trenutno nimate nobenih rezervacij.</p>
+        <p style = "text-align: center; color: #0077cc; font-weight: bold;">Trenutno nimate nobenih rezervacij.</p>
     <?php endif; ?>
 </div>
 

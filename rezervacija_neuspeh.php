@@ -1,3 +1,9 @@
+<?php
+session_start();
+include 'header.php';
+?>
+
+<!DOCTYPE html>
 <html lang = "sl">
     <head>
         <meta charset="utf-8">

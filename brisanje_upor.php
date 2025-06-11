@@ -2,18 +2,13 @@
 require_once 'baza.php';
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['brisi_upor'])) {
     $id_u = $_POST['id_u'];
 
     $sql = "DELETE rl FROM rezervacije_leti rl
             INNER JOIN rezervacije r ON rl.id_r = r.id_r
             WHERE r.uporabnik_id = ?";
     $stmt = mysqli_prepare($link, $sql);
-
-    if ($stmt === false) {
-        die('Napaka pri pripravi stavka: ' . mysqli_error($link));
-    }
-
     mysqli_stmt_bind_param($stmt, "i", $id_u);
 
     if (!mysqli_stmt_execute($stmt)) {
@@ -21,16 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user'])) {
         mysqli_stmt_close($stmt);
         exit();
     }
-
     mysqli_stmt_close($stmt);
 
     $sql = "DELETE FROM rezervacije WHERE uporabnik_id = ?";
     $stmt = mysqli_prepare($link, $sql);
-
-    if ($stmt === false) {
-        die('Napaka pri pripravi stavka: ' . mysqli_error($link));
-    }
-
     mysqli_stmt_bind_param($stmt, "i", $id_u);
 
     if (!mysqli_stmt_execute($stmt)) {
@@ -43,11 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user'])) {
 
     $sql = "DELETE FROM uporabniki WHERE id_u = ?";
     $stmt = mysqli_prepare($link, $sql);
-
-    if ($stmt === false) {
-        die('Napaka pri pripravi stavka: ' . mysqli_error($link));
-    }
-
     mysqli_stmt_bind_param($stmt, "i", $id_u);
 
     if (mysqli_stmt_execute($stmt)) {

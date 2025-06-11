@@ -1,8 +1,14 @@
 <?php
 session_start();
 include 'header.php';
-?>
+require_once 'baza.php';
 
+if (!isset($_SESSION['id_u']) || $_SESSION['vloga_id'] != 1) {
+    echo "<p>Dostop zavrnjen.</p>";
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -19,9 +25,9 @@ include 'header.php';
     </header>
 
     <div class="uspeh">
-        <h2 class="uspeh-naslov">Rezervacija uspešna</h2>
-        <p>Vaša rezervacija je bila uspešno oddana. Hvala, da ste izbrali Airros!</p>
-        <a href="profil.php" class="submit-button">Ogled rezervacij</a>
+        <h2 class="uspeh-naslov">Let uspešno dodan</h2>
+        <p>Vaš let je bil uspešno dodan</p>
+        <a href="admin.php" class="submit-button">Nazaj</a>
     </div>
 
     <footer>
@@ -36,4 +42,3 @@ include 'header.php';
     </footer>
     </body>
 </html>
-    

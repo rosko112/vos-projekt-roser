@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="sl">
 <?php
 include 'header.php';
 ?>
@@ -6,6 +7,7 @@ include 'header.php';
     <meta charset="UTF-8">
     <title>Spremeni geslo</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="slike/favicon.ico">
 </head>
 <body>

@@ -1,3 +1,9 @@
+<?php
+require_once 'baza.php';
+session_start();
+include 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -22,7 +28,7 @@
     </p>
     <p>
         Danes Airros ponuja lete v več kot 50 držav po vsem svetu. Naša ekipa več kot 500 predanih zaposlenih vsak dan
-        dela na tem, da vam zagotovi najboljšo izkušnjo – od trenutka, ko rezervirate let, do trenutka, ko pristanete na
+        dela na tem, da vam zagotovi najboljšo izkušnjo. Od trenutka, ko rezervirate let, do trenutka, ko pristanete na
         svoji destinaciji.
     </p>
 

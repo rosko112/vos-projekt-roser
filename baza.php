@@ -8,4 +8,5 @@ $link=mysqli_connect($host,$user,$password,$database)
         or die('napaka pri povezavi z bazo');
 
 mysqli_set_charset($link, "utf8");
+date_default_timezone_set('Europe/Ljubljana');
 ?>

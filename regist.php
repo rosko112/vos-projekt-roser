@@ -40,7 +40,7 @@ session_start();
             <p>Vse pravice pridržane &copy; 2023</p>
             <div class="social-media">
                 <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
+                <a href="o_nas.php"> O nas </a>
                 <a href="#">Twitter</a>
             </div>
         </div>

@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $st_sed = rand(1, 140);
             $st_vrste = rand(1, 20);
 
-            $check_sql = "SELECT COUNT(*) AS count FROM rezervacije WHERE st_sed = $st_sed AND st_vrste = $st_vrste AND id_s = $id_sedeza";
-            $check_result = mysqli_query($link, $check_sql);
-            $row = mysqli_fetch_assoc($check_result);
+            $preveri_sql = "SELECT COUNT(*) AS count FROM rezervacije WHERE st_sed = $st_sed AND st_vrste = $st_vrste AND id_s = $id_sedeza";
+            $preveri_result = mysqli_query($link, $preveri_sql);
+            $row = mysqli_fetch_assoc($preveri_result);
         } while ($row['count'] > 0);
 
         $sql = "INSERT INTO rezervacije (datum_rez, st_sed, st_vrste, uporabnik_id, id_s, cena) 
@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_query($link, $sql)) {
             $id_rezervacije = mysqli_insert_id($link);
 
-            $check_flight_sql = "SELECT COUNT(*) AS count FROM rezervacije_leti WHERE id_r = $id_rezervacije AND id_f = $id_leta";
-            $check_flight_result = mysqli_query($link, $check_flight_sql);
-            $flight_row = mysqli_fetch_assoc($check_flight_result);
+            $preveri_let_sql = "SELECT COUNT(*) AS count FROM rezervacije_leti WHERE id_r = $id_rezervacije AND id_f = $id_leta";
+            $preveri_let_result = mysqli_query($link, $preveri_let_sql);
+            $let_vrsta = mysqli_fetch_assoc($preveri_let_result);
 
-            if ($flight_row['count'] == 0) {
+            if ($let_vrsta['count'] == 0) {
             $sql2 = "INSERT INTO rezervacije_leti (id_r, id_f) VALUES ($id_rezervacije, $id_leta)";
             if (!mysqli_query($link, $sql2)) {
                 echo "<p>Napaka pri povezovanju rezervacije z letom: " . mysqli_error($link) . "</p>";

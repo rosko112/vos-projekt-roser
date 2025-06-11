@@ -28,7 +28,7 @@ session_start();
         ?>
         <form action="login_vmes.php" method="POST">
             <input type="email" name="email" id="email" class="input-field" placeholder="E-pošta" required> <br>
-            <input type="password" name="password" id="password" class="input-field" placeholder="Geslo" required> <br>
+            <input type="password" name="geslo" id="geslo" class="input-field" placeholder="Geslo" required> <br>
             <button type="submit" class="submit-button">Prijava</button>
         </form>
         <a href="regist.php" class="register-link">Nimate računa? Registrirajte se tukaj!</a>

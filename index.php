@@ -50,7 +50,7 @@ include 'header.php';
 
                 <label for="do">Do:</label>
                 <select name="do" id="do">
-                <option value="" selected disabled hidden>Destinacija</option>
+                <option value="" hidden>Destinacija</option>
                 <?php
                     $sql = 'SELECT k.id_k, k.ime AS kraj, d.ime AS drzava 
                             FROM kraji k 

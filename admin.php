@@ -7,37 +7,6 @@ if (!isset($_SESSION['id_u']) || $_SESSION['vloga_id'] != 1) {
     echo "Dostop zavrnjen.";
     exit();
 }
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $st_leta = $_POST['st_leta'];
-    $st_sedezov = $_POST['st_sedezov'];
-    $cas_odhoda = $_POST['cas_odhoda'];
-    $cas_prihoda = $_POST['cas_prihoda'];
-    $dat_odhoda = $_POST['dat_odhoda'];
-    $dat_prihoda = $_POST['dat_prihoda'];
-    $id_o = $_POST['id_o']; 
-    $id_p = $_POST['id_p']; 
-
-    $sql = "INSERT INTO leti 
-        (st_leta, st_sedezov, cas_odhoda, cas_prihoda, dat_odhoda, dat_prihoda, id_o, id_p) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    
-    $stmt = mysqli_prepare($link, $sql);
-
-    if ($stmt === false) {
-        die('Napaka pri pripravi stavka: ' . mysqli_error($link));
-    }
-
-    mysqli_stmt_bind_param($stmt, "sissssii", $st_leta, $st_sedezov, $cas_odhoda, $cas_prihoda, $dat_odhoda, $dat_prihoda, $id_o, $id_p);
-
-    if (mysqli_stmt_execute($stmt)) {
-        echo "<p>Let je bil uspešno dodan.</p>";
-    } else {
-        echo "<p>Napaka pri vnosu: " . mysqli_stmt_error($stmt) . "</p>";
-    }
-
-    mysqli_stmt_close($stmt);
-}
 ?>
 
 <!DOCTYPE html>
@@ -58,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
     
 <div class = "dodajanje">
-<form action="" method="post">
+<form action="dod_letov.php" method="post">
     Št. leta: <input type="text" name="st_leta" required><br>
-    Št. sedežev: <input type="number" name="st_sedezov" required><br>
+    <input  type="hidden" name="st_sedezov" value="130">
     Čas odhoda: <input type="time" name="cas_odhoda" required><br>
     Čas prihoda: <input type="time" name="cas_prihoda" required><br>
     Datum odhoda: <input type="date" name="dat_odhoda" required><br>
@@ -95,16 +64,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         ?>
     </select><br>
-
     <input type="submit" value="Dodaj let" class = "dodaj">
 </form>
+    <a href="admin_upor.php">Upravljanje uporabnikov</a>
 </div>
+
 <footer>
         <div class="footer">
             <p>Vse pravice pridržane &copy; 2023</p>
             <div class="social-media">
                 <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                <a href="o_nas.php"> O nas </a>
                 <a href="https://www.twitter.com/" target="_blank">Twitter</a>
             </div>
         </div>
