@@ -9,5 +9,5 @@ Funkcionalnosti te spletne aplikacije so:
 - Uporabniška stran, kjer lahko uporabnik spreminja geslo ter spremlja svoje rezervacije. lahko jih tudi prekliče ter vidi njihov status.
 - Admin stran, kjer lahko vidimo vse uporabnika, spreminjamo njihove vloge ter dodajamo lete.
 
-# Povezava do spletne strani: http://ers-projekt-r.infinityfreeapp.com
+Povezava do spletne strani: http://ers-projekt-r.infinityfreeapp.com
 
