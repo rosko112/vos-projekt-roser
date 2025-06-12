@@ -27,15 +27,23 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['reg_error'] = "Email je že v uporabi.";
     header("Location: regist.php");
     exit;
-} else {
-    $sql = "INSERT INTO uporabniki (ime, priimek, email, geslo, tel, vloga_id) VALUES ('$ime', '$priimek', '$email', '$geslo1', '$tel', '$vloga_id')";
-    $result = mysqli_query($link, $sql);
+} 
 
-    if ($result) {
+else {
+
+    $sql = "INSERT INTO uporabniki (ime, priimek, email, geslo, tel, vloga_id) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($link, $sql);
+
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "sssssi", $ime, $priimek, $email, $geslo1, $tel, $vloga_id);
+        mysqli_stmt_execute($stmt);
         $sql = "SELECT id_u FROM uporabniki WHERE email = ? AND geslo = ?";
         $stmt = mysqli_prepare($link, $sql);
+
         mysqli_stmt_bind_param($stmt, "ss", $email, $geslo1);
         mysqli_stmt_execute($stmt);
+
         $result1 = mysqli_stmt_get_result($stmt);
 
         if (mysqli_num_rows($result1) == 1) {
@@ -43,10 +51,12 @@ if (mysqli_num_rows($result) > 0) {
             $_SESSION['email'] = $email;
             $_SESSION['id_u'] = $row['id_u'];
             header("Location: index.php");
-        } else {
+        } 
+        else {
             echo '<p style="color: red; text-align: center;">Napaka pri vnosu podatkov.</p>';
         }
-    } else {
+    } 
+    else {
         echo '<p style="color: red; text-align: center;">Napaka pri registraciji. Prosimo, poskusite znova.</p>';
     }
 }
