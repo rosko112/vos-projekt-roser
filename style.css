@@ -95,7 +95,6 @@ img{
     margin: 20px auto;
     width: 60%; 
     border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     text-align: center; 
     font-family: Arial, sans-serif;
 }
@@ -157,7 +156,6 @@ footer a{
     margin: 20px auto;
     width: 60%; 
     border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     text-align: center; 
     font-family: Arial, sans-serif;
     padding-bottom: 90px;
@@ -195,12 +193,10 @@ button{
 
 .rezultati table {
     width: 100%;
-    max-width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     margin: 20px auto;
     font-family: Arial, sans-serif;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     table-layout: fixed;
     word-wrap: break-word;
@@ -218,7 +214,6 @@ button{
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .rezultati tr:hover {
@@ -244,7 +239,6 @@ button{
     margin: 50px auto;
     width: 50%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -273,7 +267,6 @@ button{
     border-collapse: collapse;
     margin: 20px auto;
     font-family: Arial, sans-serif;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
 }
@@ -290,7 +283,6 @@ button{
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .rezervacije tr:hover {
@@ -309,7 +301,6 @@ button{
     margin: 50px auto;
     width: 60%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -326,7 +317,6 @@ button{
     border: 1px solid #0077cc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box;
 }
 
 .dodajanje input[type="submit"] {
@@ -337,7 +327,6 @@ button{
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .dodajanje select {
@@ -355,7 +344,6 @@ button{
     margin: 50px auto;
     width: 80%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-family: Arial, sans-serif;
 }
@@ -371,7 +359,6 @@ button{
     border-collapse: collapse;
     margin: 20px auto;
     font-family: Arial, sans-serif;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
 }
@@ -430,7 +417,6 @@ button{
     margin: 50px auto;
     width: 60%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -454,7 +440,6 @@ button{
     font-size: 16px;
     color: #333;
     margin-top: 10px;
-    display: block;
 }
 
 .rezervacija input, .rezervacija select {
@@ -464,7 +449,6 @@ button{
     border: 1px solid #0077cc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box;
 }
 
 .rezervacija input[type="submit"] {
@@ -475,21 +459,19 @@ button{
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .rezervacija input[type="submit"]:hover {
     background-color: #005fa3;
 }
 
-/* uspeh ter neuspeh pri rezervacji*/
+/* uspeh tpri rezervacji*/
 .uspeh, .neuspeh {
     background-color: #ffffff;
     padding: 30px;
     margin: 50px auto;
     width: 50%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-family: Arial, sans-serif;
 }
@@ -533,13 +515,12 @@ button{
     margin: 50px auto;
     width: 50%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-family: Arial, sans-serif;
 }
 
 .spremeni-geslo form {
-    align-items: center;
+    text-align: center;
 }
 
 .spremeni-geslo label {
@@ -548,7 +529,6 @@ button{
     margin-top: 10px;
     text-align: left;
     width: 100%;
-    max-width: 400px;
 }
 
 .spremeni-geslo input {
@@ -559,7 +539,6 @@ button{
     border: 1px solid #0077cc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box;
 }
 
 .spremeni-geslo button {
@@ -588,9 +567,7 @@ button{
     margin: 50px auto;
     width: 60%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
-    line-height: 1.6;
 }
 
 .onas h2 {
