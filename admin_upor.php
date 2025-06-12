@@ -71,16 +71,5 @@ if (!$result) {
             <?php endwhile; ?>
         </table>
     </div>
-
-    <footer>
-        <div class="footer">
-            <p>Vse pravice pridržane &copy; 2023</p>
-            <div class="social-media">
-                <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-                <a href="o_nas.php"> O nas </a>
-                <a href="https://www.twitter.com/" target="_blank">Twitter</a>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
