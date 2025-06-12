@@ -43,7 +43,6 @@ $sql = "SELECT l.id_f, l.st_leta, l.st_sedezov, l.cas_odhoda, l.cas_prihoda, l.d
         ko.id_k = '$od' AND
         kp.id_k = '$do' AND
         l.dat_odhoda >= '$datum_od'
-    GROUP BY l.id_f
     ORDER BY l.dat_odhoda, l.cas_odhoda";
 $result = mysqli_query($link, $sql);
 
