@@ -53,16 +53,5 @@ include 'header.php';
         <br><strong>Telefon:</strong> +386 1 234 5678
     </p>
 </div>
-
-<footer>
-    <div class="footer">
-        <p>Vse pravice pridržane &copy; 2023 Airros</p>
-        <div class="social-media">
-            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-            <a href="https://www.twitter.com/" target="_blank">Twitter</a>
-        </div>
-    </div>
-</footer>
 </body>
 </html>
