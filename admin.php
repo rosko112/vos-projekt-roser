@@ -45,7 +45,7 @@ if (!isset($_SESSION['id_u']) || $_SESSION['vloga_id'] != 1) {
             INNER JOIN kraji k ON ko.id_k = k.id_k");
 
         while ($row = mysqli_fetch_assoc($res)) {
-            echo "<option value='" . $row['id_o'] . "'>" . htmlspecialchars($row['ime']) . "</option>";
+            echo "<option value='" . $row['id_o'] . "'>" . ($row['ime']) . "</option>";
         }
         ?>
     </select><br>
@@ -60,7 +60,7 @@ if (!isset($_SESSION['id_u']) || $_SESSION['vloga_id'] != 1) {
             INNER JOIN kraji k ON kp.id_k = k.id_k");
 
         while ($row2 = mysqli_fetch_assoc($res2)) {
-            echo "<option value='" . $row2['id_p'] . "'>" . htmlspecialchars($row2['ime']) . "</option>";
+            echo "<option value='" . $row2['id_p'] . "'>" . ($row2['ime']) . "</option>";
         }
         ?>
     </select><br>
